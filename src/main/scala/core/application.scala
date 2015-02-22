@@ -4,16 +4,14 @@ import core.DatabaseCfg._
 
 import scala.slick.driver.H2Driver.simple._
 
-object Dashwiz extends BootSystem with doStuff {
+object Dashwiz extends App with BootStrap with executeTxns {
 
-  def main(args: Array[String]): Unit = {
-    getTxns()
-  }
+  getTxns()
 
 }
 
 
-trait doStuff {
+trait executeTxns {
 
   def getTxns(txn_id: Int = 123) = {
     db.withSession { implicit session =>
@@ -22,4 +20,5 @@ trait doStuff {
   }
 
 }
+
 
