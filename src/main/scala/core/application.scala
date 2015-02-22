@@ -10,7 +10,6 @@ object Dashwiz extends BootSystem with doStuff {
     getTxns()
   }
 
-
 }
 
 
@@ -24,5 +23,3 @@ trait doStuff {
 
 }
 
-
-//object Dashwiz extends App with BootSystem with doStuff
