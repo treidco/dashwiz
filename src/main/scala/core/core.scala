@@ -22,5 +22,8 @@ trait BootStrap extends Core {
 }
 
 trait CoreActors {
+  this: Core =>
+
+  //actors...
 
 }

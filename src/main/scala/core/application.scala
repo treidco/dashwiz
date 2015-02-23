@@ -1,12 +1,12 @@
 package core
 
-import service.executeTxns
+import service.TescoService
 
 
 object Dashwiz extends App with BootStrap {
 
   //shorthand with trait
-  val txns = new executeTxns {} getTxns()
+  val txns = new TescoService {} getTxns()
 
 }
 
