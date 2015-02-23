@@ -1,2 +1,1 @@
-# spray-seed
-Spray.io initial project (for activator)
+Dashwiz app created from activator spray-seed template
