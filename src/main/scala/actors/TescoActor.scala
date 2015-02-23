@@ -3,7 +3,7 @@ package actors
 import actors.TescoActor.{GetTransactions, TescoTransaction}
 import akka.actor.Actor
 import domain.TescoTxn
-import service.TescoService
+import api.TescoService
 
 
 object TescoActor {

@@ -1,6 +1,6 @@
 package core
 
-import service.TescoService
+import api.TescoService
 
 
 object Dashwiz extends App with BootStrap {

@@ -1,6 +1,7 @@
 package core
 
-import akka.actor.ActorSystem
+import actors.TescoActor
+import akka.actor.{Props, ActorSystem}
 
 trait Core {
 
@@ -24,6 +25,6 @@ trait BootStrap extends Core {
 trait CoreActors {
   this: Core =>
 
-  //actors...
+  val tesco = system.actorOf(Props[TescoActor])
 
 }
