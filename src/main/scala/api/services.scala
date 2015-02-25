@@ -1,17 +1,18 @@
 package api
 
-import core.DatabaseCfg._
+import akka.actor.{Actor, ActorLogging, ActorRefFactory}
+import spray.routing._
+import spray.util.LoggingContext
 
-import scala.slick.driver.H2Driver.simple._
+class RouterService(route: Route) extends Actor with HttpService with ActorLogging {
 
-trait TescoService {
+  implicit def actorRefFactory: ActorRefFactory = context
 
-  def getTxns(txn_id: Int = 123) = {
-    db.withSession { implicit session =>
-      tescoTable.list.filter(_.amount > 100).map(tx => tx.amount).foreach(println)
-    }
+  implicit val handler = ExceptionHandler.default
+
+  def receive: Receive = {
+    runRoute(route)(ExceptionHandler.default, RejectionHandler.Default, context,
+      RoutingSettings.default, LoggingContext.fromActorRefFactory)
   }
-
-  def listTxns() = tescoTable.list
 
 }
