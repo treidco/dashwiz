@@ -1,13 +1,12 @@
 package web
 
 import akka.io.IO
-import api.Api
 import core.{Core, CoreActors}
 import spray.can.Http
 
 trait Web {
-  this: Api with CoreActors with Core =>
+  this: CoreActors with Core =>
 
-  IO(Http)(system) ! Http.Bind(tesco, "0.0.0.0", port = 8080)
+  IO(Http)(system) ! Http.Bind(tesco, "localhost", port = 8083)
 
 }

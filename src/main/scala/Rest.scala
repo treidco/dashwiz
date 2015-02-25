@@ -1,5 +1,5 @@
-import api.Api
-import core.{CoreActors, BootStrap}
+import core.{Core, BootStrap, CoreActors}
 import web.Web
 
-object Rest extends App with BootStrap with CoreActors with Api with Web
+object Rest extends App with BootStrap with CoreActors with Core with Web
+

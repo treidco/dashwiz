@@ -2,6 +2,7 @@ package core
 
 import actors.TescoActor
 import akka.actor.{Props, ActorSystem}
+import api.TescoService
 
 trait Core {
 
@@ -25,6 +26,6 @@ trait BootStrap extends Core {
 trait CoreActors {
   this: Core =>
 
-  val tesco = system.actorOf(Props[TescoActor])
+  val tesco = system.actorOf(Props[TescoService])
 
 }
