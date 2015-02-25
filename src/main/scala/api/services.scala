@@ -11,7 +11,7 @@ class RouterService(route: Route) extends Actor with HttpService with ActorLoggi
   implicit val handler = ExceptionHandler.default
 
   def receive: Receive = {
-    runRoute(route)(ExceptionHandler.default, RejectionHandler.Default, context,
+    runRoute(route)(handler, RejectionHandler.Default, context,
       RoutingSettings.default, LoggingContext.fromActorRefFactory)
   }
 

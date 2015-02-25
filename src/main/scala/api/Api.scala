@@ -4,7 +4,7 @@ import akka.actor.Props
 import core.{Core, CoreActors}
 import spray.routing.RouteConcatenation
 
-class Api extends RouteConcatenation {
+trait Api extends RouteConcatenation {
   this: CoreActors with Core =>
 
   private implicit val _ = system.dispatcher

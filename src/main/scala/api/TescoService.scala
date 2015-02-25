@@ -1,14 +1,14 @@
 package api
 
 import akka.actor.ActorRef
-import spray.routing.Directives
+import spray.routing.{HttpServiceActor, Directives}
 
 import scala.concurrent.ExecutionContext
 
-class TescoService(actor: ActorRef)(implicit executionContext: ExecutionContext) extends Directives {
+class TescoService(actor: ActorRef)(implicit executionContext: ExecutionContext) extends HttpServiceActor {
 
 
-  val route = {
+  def receive =  runRoute{
     path("transactions") {
       get {
         //        handleWith { gt: GetTransactions => actor ! gt; "{}"}
